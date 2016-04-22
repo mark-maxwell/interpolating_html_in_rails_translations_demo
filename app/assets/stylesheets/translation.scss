@@ -1,0 +1,11 @@
+.translation {
+  background-color: grey;
+
+  &__success {
+    background-color: green;
+  }
+
+  &__fail {
+    background-color: red;
+  }
+}

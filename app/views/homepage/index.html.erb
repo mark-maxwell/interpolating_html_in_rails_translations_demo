@@ -1,0 +1,42 @@
+<div class="translation">
+  <h4>Hello world</h4>
+  <div><%= t('hello') %></div>
+</div>
+
+<div class="translation">
+  <h4>Hello &lt;br/&gt; world with _html suffix and linebreak as part of the translation</h4>
+  <div><%= t('hello_html') %></div>
+</div>
+
+<div class="translation__fail">
+  <h4>Hello &lt;br/&gt; world with linebreak tag passed in as a divider</h4>
+  <!-- This renders the <br/> as text on the screen, i.e. the HTML has been escaped-->
+  <div><%= t('hello_divider', divider: '<br/>') %></div>
+</div>
+
+<div class="translation__fail">
+  <h4>Hello &lt;br/&gt; world with _html suffix and linebreak tag passed in as a divider</h4>
+  <!-- This does the same as above because interpolation {...} escapes the HTML
+    so it doesn't matter that the translation is not escaped when it is read from. -->
+    <div><%= t('hello_divider_html', divider: '<br/>') %></div>
+</div>
+
+<div class="translation__success">
+  <h4>Hello &lt;br/&gt; world with linebreak tag passed in as a divider, but rendered with ERB double equals</h4>
+  <div><%== t('hello_divider', divider: '<br/>') %></div>
+</div>
+
+<div class="translation__fail">
+  <h4>Hello &lt;br/&gt; world with _html suffix and linebreak tag passed in as a divider, but rendered with ERB double equals</h4>
+  <div><%== t('hello_divider_html', divider: '<br/>') %></div>
+</div>
+
+<div class="translation__success">
+  <h4>Hello &lt;br/&gt; world with linebreak tag passed in as a divider, and .html_safe called on translation in the view</h4>
+  <div><%= t('hello_divider', divider: '<br/>').html_safe %></div>
+</div>
+
+<div class="translation__fail">
+  <h4>Hello &lt;br/&gt; world with _html suffix and linebreak tag passed in as a divider, and .html_safe called on translation in the view</h4>
+  <div><%= t('hello_divider_html', divider: '<br/>').html_safe %></div>
+</div>

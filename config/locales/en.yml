@@ -1,0 +1,5 @@
+en:
+  hello: "Hello World"
+  hello_html: "Hello <br/> World"
+  hello_divider: "Hello%{divider}World"
+  hello_divider_html: "Hello%{divider}World with _html suffix"
